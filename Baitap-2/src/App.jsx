@@ -1,11 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './styles.css'
+// import './styles.css'
 import Nav from './features/Nav'
 import Header from './features/header'
 import Footer from './features/Footer'
 import Main from './features/Main'
+import Carousel from './carousel/Carousel'
+
+const carousel = [
+  {
+    image:
+      'https://1.bp.blogspot.com/-P4wpYIQ_Ag8/YCtiJIJabuI/AAAAAAAA7lQ/0ttciegq7_AT2246-FNi5W1f_H9l-oTxwCLcBGAsYHQ/s0/Cute-pho-mai-que-%2B%25281%2529.jpg',
+    title: 'Hình ảnh cute phô mai que',
+    description: 'Hình ảnh 1 con lợn con',
+  },
+  {
+    image:
+      'https://1.bp.blogspot.com/-nMoyJhfIVT4/YCtiOvI3BBI/AAAAAAAA7m4/Kzz_nE-m45wIKnFVOWo6HI8-tXU7BdIDwCLcBGAsYHQ/s0/Cute-pho-mai-que-%2B%25284%2529.jpg',
+    title: 'Hình ảnh 2 con lợn',
+    description: 'Hình ảnh 2 con lợn con',
+  },
+];
 
 const products = [
   {
@@ -105,6 +119,7 @@ function App() {
 
   return (
     <>
+    <Carousel/>
     <Nav/>
     <Header/>
     <Main products = {products}/>
