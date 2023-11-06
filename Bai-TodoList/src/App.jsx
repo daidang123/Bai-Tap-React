@@ -25,8 +25,8 @@ function App() {
       </div>
       <div className='todo-list'>
        <div className='todo-item'>
-        <input type="checkbox" />State
-       </div>
+        <input type="checkbox" />
+        <span>aaaa</span>
        <div className='todo-item'>
         <input type="checkbox" />Prop
        </div>
