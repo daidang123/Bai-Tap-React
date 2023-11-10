@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './styles.css'
@@ -102,6 +102,37 @@ const products = [
 
 function App() {
   const [count, setCount] = useState(0)
+   const [{product, loading,error}, setProduct]= useState({
+    products:[],
+    loading:true,
+    error:null,
+  });
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://dummyjson.com/products');
+        console.log(response);
+        if (!response.ok) {
+          throw new Error('Failed to fetch product data');
+        }
+        const data = await response.json();
+        setProducts(data.products);
+        setLoading(false);
+        setError(null);
+      } catch (error) {
+        setProducts([]);
+        setLoading(false);
+        setError('Failed to fetch product data');
+      }
+    };
+
+    fetchData();
+  }, []);
+  if(loading) return <div>Loading...</div>
+  if (error)  return <div>Error :{error}</div>
+  
 
   return (
     <>
